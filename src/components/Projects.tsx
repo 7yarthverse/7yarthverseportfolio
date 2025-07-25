@@ -8,6 +8,7 @@ const Projects = () => {
       description: "Automated deployment pipeline with GitHub Actions, Docker containers, and AWS EC2 instances for seamless application delivery.",
       tools: ["GitHub Actions", "AWS EC2", "Docker", "Nginx", "Shell Scripts"],
       github: "https://github.com/satyarth-mishra/cicd-github-actions-aws",
+      github: "https://github.com/manav-bajpai/cicd-github-actions-aws",
       demo: null
     },
     {
@@ -15,6 +16,7 @@ const Projects = () => {
       description: "Deployed containerized microservices architecture on Azure Kubernetes Service with load balancing and auto-scaling.",
       tools: ["Kubernetes", "Azure AKS", "Docker", "Helm", "YAML"],
       github: "https://github.com/satyarth-mishra/k8s-microservices-aks",
+      github: "https://github.com/manav-bajpai/k8s-microservices-aks",
       demo: null
     },
     {
@@ -22,6 +24,7 @@ const Projects = () => {
       description: "Built serverless architecture using AWS Lambda, S3, and CloudWatch for automated file processing and notifications.",
       tools: ["AWS Lambda", "S3", "CloudWatch", "Python", "Boto3"],
       github: "https://github.com/satyarth-mishra/serverless-file-processor",
+      github: "https://github.com/manav-bajpai/serverless-file-processor",
       demo: null
     },
     {
@@ -29,6 +32,7 @@ const Projects = () => {
       description: "Provisioned complete AWS infrastructure using Terraform modules for scalable and maintainable cloud resources.",
       tools: ["Terraform", "AWS", "VPC", "EC2", "RDS", "CloudFormation"],
       github: "https://github.com/satyarth-mishra/terraform-aws-infrastructure",
+      github: "https://github.com/manav-bajpai/terraform-aws-infrastructure",
       demo: null
     }
   ];
@@ -38,9 +42,11 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-red-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

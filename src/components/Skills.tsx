@@ -1,88 +1,100 @@
 import React from 'react';
-import { 
-  Code, 
-  Cloud, 
-  Settings, 
-  Activity, 
-  Shield, 
-  Wrench 
-} from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 
-const Skills = () => {
-  const skillCategories = [
+const Projects = () => {
+  const projects = [
     {
-      title: "Languages",
-      icon: <Code size={24} />,
-      skills: ["Python", "JavaScript", "TypeScript", "Bash/Shell", "YAML", "JSON"],
-      color: "from-red-500 to-red-600"
+      title: "CI/CD Pipeline using GitHub Actions on AWS EC2",
+      description: "Automated deployment pipeline with GitHub Actions, Docker containers, and AWS EC2 instances for seamless application delivery.",
+      tools: ["GitHub Actions", "AWS EC2", "Docker", "Nginx", "Shell Scripts"],
+      github: "https://github.com/satyarth-mishra/cicd-github-actions-aws",
+      github: "https://github.com/manav-bajpai/cicd-github-actions-aws",
+      demo: null
     },
     {
-      title: "Cloud Platforms",
-      icon: <Cloud size={24} />,
-      skills: ["AWS", "Microsoft Azure", "AWS Lambda", "Azure Functions", "S3", "EC2"],
-      color: "from-green-500 to-green-600"
+      title: "Kubernetes Microservices Deployment on AKS",
+      description: "Deployed containerized microservices architecture on Azure Kubernetes Service with load balancing and auto-scaling.",
+      tools: ["Kubernetes", "Azure AKS", "Docker", "Helm", "YAML"],
+      github: "https://github.com/satyarth-mishra/k8s-microservices-aks",
+      github: "https://github.com/manav-bajpai/k8s-microservices-aks",
+      demo: null
     },
     {
-      title: "DevOps Tools",
-      icon: <Settings size={24} />,
-      skills: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions", "GitLab CI", "Ansible"],
-      color: "from-purple-500 to-purple-600"
+      title: "Serverless File Processing Pipeline on AWS",
+      description: "Built serverless architecture using AWS Lambda, S3, and CloudWatch for automated file processing and notifications.",
+      tools: ["AWS Lambda", "S3", "CloudWatch", "Python", "Boto3"],
+      github: "https://github.com/satyarth-mishra/serverless-file-processor",
+      github: "https://github.com/manav-bajpai/serverless-file-processor",
+      demo: null
     },
     {
-      title: "Infrastructure & Monitoring",
-      icon: <Activity size={24} />,
-      skills: ["Terraform", "CloudFormation", "Prometheus", "Grafana", "ELK Stack", "CloudWatch"],
-      color: "from-orange-500 to-orange-600"
-    },
-    {
-      title: "Security",
-      icon: <Shield size={24} />,
-      skills: ["AWS IAM", "Azure AD", "Security Groups", "SSL/TLS", "Vulnerability Scanning"],
-      color: "from-red-500 to-red-600"
-    },
-    {
-      title: "Other Tools",
-      icon: <Wrench size={24} />,
-      skills: ["Git", "Linux", "Nginx", "Apache", "MySQL", "PostgreSQL"],
-      color: "from-teal-500 to-teal-600"
+      title: "Infrastructure as Code with Terraform on AWS",
+      description: "Provisioned complete AWS infrastructure using Terraform modules for scalable and maintainable cloud resources.",
+      tools: ["Terraform", "AWS", "VPC", "EC2", "RDS", "CloudFormation"],
+      github: "https://github.com/satyarth-mishra/terraform-aws-infrastructure",
+      github: "https://github.com/manav-bajpai/terraform-aws-infrastructure",
+      demo: null
     }
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-900">
+    <section id="projects" className="py-20 bg-gray-800">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
-            Technical Skills
+            Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-red-500 mx-auto"></div>
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-gray-800 rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-blue-500"
-              className="bg-gray-800 rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-red-500"
+              className="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group hover:transform hover:scale-105"
             >
-              <div className={`bg-gradient-to-r ${category.color} p-3 rounded-lg w-fit mb-4`}>
-                {category.icon}
+              <div className="mb-4">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-4">
+                  {project.description}
+                </p>
               </div>
-              
-              <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
-              
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="bg-gray-700 text-sm px-3 py-1 rounded-full hover:bg-blue-600 transition-colors duration-200"
-                    className="bg-gray-700 text-sm px-3 py-1 rounded-full hover:bg-red-600 transition-colors duration-200"
+
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-500 mb-2">TOOLS USED</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, toolIndex) => (
+                    <span 
+                      key={toolIndex}
+                      className="bg-blue-600 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded-full border border-blue-600 border-opacity-30"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
+                >
+                  <Github size={16} />
+                  View Code
+                </a>
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
                   >
-                    {skill}
-                  </span>
-                ))}
+                    <ExternalLink size={16} />
+                    Live Demo
+                  </a>
+                )}
               </div>
             </div>
           ))}
@@ -92,4 +104,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Projects;

@@ -1,169 +1,113 @@
-# Satyarth Mishra - Cloud & DevOps Portfolio
+import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
 
-A modern, responsive portfolio website for Satyarth Mishra, showcasing expertise in Cloud & DevOps technologies.
+const Projects = () => {
+  const projects = [
+    {
+      title: "CI/CD Pipeline using GitHub Actions on AWS EC2",
+      description: "Automated deployment pipeline with GitHub Actions, Docker containers, and AWS EC2 instances for seamless application delivery.",
+      tools: ["GitHub Actions", "AWS EC2", "Docker", "Nginx", "Shell Scripts"],
+      github: "https://github.com/satyarth-mishra/cicd-github-actions-aws",
+      github: "https://github.com/manav-bajpai/cicd-github-actions-aws",
+      github: "https://github.com/manav-bajpai/cicd-github-actions-aws",
+      demo: null
+    },
+    {
+      title: "Kubernetes Microservices Deployment on AKS",
+      description: "Deployed containerized microservices architecture on Azure Kubernetes Service with load balancing and auto-scaling.",
+      tools: ["Kubernetes", "Azure AKS", "Docker", "Helm", "YAML"],
+      github: "https://github.com/satyarth-mishra/k8s-microservices-aks",
+      github: "https://github.com/manav-bajpai/k8s-microservices-aks",
+      github: "https://github.com/manav-bajpai/k8s-microservices-aks",
+      demo: null
+    },
+    {
+      title: "Serverless File Processing Pipeline on AWS",
+      description: "Built serverless architecture using AWS Lambda, S3, and CloudWatch for automated file processing and notifications.",
+      tools: ["AWS Lambda", "S3", "CloudWatch", "Python", "Boto3"],
+      github: "https://github.com/satyarth-mishra/serverless-file-processor",
+      github: "https://github.com/manav-bajpai/serverless-file-processor",
+      github: "https://github.com/manav-bajpai/serverless-file-processor",
+      demo: null
+    },
+    {
+      title: "Infrastructure as Code with Terraform on AWS",
+      description: "Provisioned complete AWS infrastructure using Terraform modules for scalable and maintainable cloud resources.",
+      tools: ["Terraform", "AWS", "VPC", "EC2", "RDS", "CloudFormation"],
+      github: "https://github.com/satyarth-mishra/terraform-aws-infrastructure",
+      github: "https://github.com/manav-bajpai/terraform-aws-infrastructure",
+      github: "https://github.com/manav-bajpai/terraform-aws-infrastructure",
+      demo: null
+    }
+  ];
 
-## 🚀 Features
+  return (
+    <section id="projects" className="py-20 bg-gray-800">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-400 to-red-500 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-red-500 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto"></div>
+        </div>
 
-- **Modern Design**: Dark theme with blue and red accents
-- **Responsive Layout**: Optimized for all devices (mobile, tablet, desktop)
-- **Animated Hero Section**: Dynamic typing effect for roles
-- **Interactive Components**: Hover effects and smooth transitions
-- **Skills Showcase**: Categorized technical skills with icons
-- **Project Gallery**: Featured DevOps and Cloud projects
-- **Contact Form**: Functional email form
-- **Fast Loading**: Built with Vite for optimal performance
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <div 
+              key={index}
+              className="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group hover:transform hover:scale-105"
+            >
+              <div className="mb-4">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-4">
+                  {project.description}
+                </p>
+              </div>
 
-## 🛠 Tech Stack
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-500 mb-2">TOOLS USED</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, toolIndex) => (
+                    <span 
+                      key={toolIndex}
+                      className="bg-blue-600 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded-full border border-blue-600 border-opacity-30"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-- **Frontend**: React 18 with TypeScript
-- **Styling**: Tailwind CSS
-- **Icons**: Lucide React
-- **Build Tool**: Vite
-- **Deployment**: Ready for Netlify, Vercel, or GitHub Pages
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
+                >
+                  <Github size={16} />
+                  View Code
+                </a>
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
+                  >
+                    <ExternalLink size={16} />
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   ├── Header.tsx       # Hero section with animated typing
-│   ├── About.tsx        # About me section
-│   ├── Skills.tsx       # Technical skills grid
-│   ├── Projects.tsx     # Featured projects
-│   ├── Resume.tsx       # Resume download section
-│   ├── Contact.tsx      # Contact form and info
-│   └── Footer.tsx       # Footer component
-├── App.tsx              # Main app component
-├── main.tsx            # App entry point
-└── index.css           # Global styles
-```
-
-## 🏃‍♂️ Running Locally
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/satyarth-mishra/portfolio
-   cd portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   ```
-   http://localhost:5173
-   ```
-
-## 🚀 Deployment
-
-### Deploy to Render
-1. **Create a Render account** at [render.com](https://render.com)
-2. **Connect your GitHub repository**:
-   - Push this code to a GitHub repository
-   - In Render dashboard, click "New +" → "Static Site"
-   - Connect your GitHub account and select the repository
-3. **Configure the deployment**:
-   - Build Command: `npm run build`
-   - Publish Directory: `dist`
-   - Auto-Deploy: Yes (recommended)
-4. **Alternative: Use render.yaml**:
-   - The included `render.yaml` file will automatically configure the deployment
-   - Just connect your repo and Render will use these settings
-
-### Deploy to Netlify
-1. Build the project: `npm run build`
-2. Drag and drop the `dist` folder to [Netlify](https://netlify.com)
-3. Or connect your GitHub repository for automatic deployments
-
-### Deploy to Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Follow the prompts
-
-### Deploy to GitHub Pages
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add to package.json:
-   ```json
-   {
-     "homepage": "https://yourusername.github.io/portfolio",
-     "scripts": {
-       "predeploy": "npm run build",
-       "deploy": "gh-pages -d dist"
-     }
-   }
-   ```
-3. Run: `npm run deploy`
-
-## 📝 Customization
-
-### Personal Information
-Update the following in the respective components:
-- Name and title in `Header.tsx`
-- About me content in `About.tsx`
-- Skills in `Skills.tsx`
-- Projects in `Projects.tsx`
-- Contact information in `Contact.tsx`
-
-### Styling
-- Colors can be modified in the Tailwind classes
-- The gradient theme uses blue and red as accent colors
-- All animations are CSS-based for optimal performance
-
-### Adding New Sections
-1. Create a new component in `src/components/`
-2. Import and add it to `App.tsx`
-3. Add navigation if needed
-
-## 🔧 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-## 🎨 Design Features
-
-- **Dark Theme**: Professional appearance with excellent contrast
-- **Gradient Accents**: Blue to red gradients for highlights
-- **Smooth Animations**: CSS transitions and transforms
-- **Interactive Elements**: Hover states and click effects
-- **Typography**: Clean, readable fonts with proper hierarchy
-
-## 📧 Contact Form
-
-The contact form uses `mailto:` links to open the user's default email client. For production use, consider integrating with:
-- EmailJS
-- Netlify Forms
-- Formspree
-- Custom backend API
-
-## 🔗 Social Links
-
-Update the social media links in:
-- `Header.tsx` (hero section)
-- `Contact.tsx` (contact section)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Feel free to fork this project and customize it for your own portfolio. If you make improvements, pull requests are welcome!
-
----
-
-**Built with ❤️ by Satyarth Mishra**
+export default Projects;

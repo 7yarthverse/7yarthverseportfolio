@@ -1,118 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import { Download, Github, Linkedin, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
 
-const Header = () => {
-  const [currentRole, setCurrentRole] = useState(0);
-  const roles = [
-    "DevOps Engineer",
-    "Cloud Enthusiast", 
-    "AWS + Azure Developer",
-    "CI/CD Specialist"
+const Projects = () => {
+  const projects = [
+    {
+      title: "CI/CD Pipeline using GitHub Actions on AWS EC2",
+      description: "Automated deployment pipeline with GitHub Actions, Docker containers, and AWS EC2 instances for seamless application delivery.",
+      tools: ["GitHub Actions", "AWS EC2", "Docker", "Nginx", "Shell Scripts"],
+      github: "https://github.com/satyarth-mishra/cicd-github-actions-aws",
+      demo: null
+    },
+    {
+      title: "Kubernetes Microservices Deployment on AKS",
+      description: "Deployed containerized microservices architecture on Azure Kubernetes Service with load balancing and auto-scaling.",
+      tools: ["Kubernetes", "Azure AKS", "Docker", "Helm", "YAML"],
+      github: "https://github.com/satyarth-mishra/k8s-microservices-aks",
+      demo: null
+    },
+    {
+      title: "Serverless File Processing Pipeline on AWS",
+      description: "Built serverless architecture using AWS Lambda, S3, and CloudWatch for automated file processing and notifications.",
+      tools: ["AWS Lambda", "S3", "CloudWatch", "Python", "Boto3"],
+      github: "https://github.com/satyarth-mishra/serverless-file-processor",
+      demo: null
+    },
+    {
+      title: "Infrastructure as Code with Terraform on AWS",
+      description: "Provisioned complete AWS infrastructure using Terraform modules for scalable and maintainable cloud resources.",
+      tools: ["Terraform", "AWS", "VPC", "EC2", "RDS", "CloudFormation"],
+      github: "https://github.com/satyarth-mishra/terraform-aws-infrastructure",
+      demo: null
+    }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <header className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 relative overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section id="projects" className="py-20 bg-gray-800">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-red-500 mx-auto"></div>
+        </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
-              Hi, I'm Manav Bajpai 👋
-            </h1>
-            
-            <div className="text-xl lg:text-2xl text-gray-300 mb-4">
-              <span className="block mb-2">Cloud & DevOps Engineer</span>
-              <div className="flex items-center justify-center lg:justify-start gap-2 text-blue-400">
-                <span>I'm a </span>
-                <span className="font-semibold text-red-400 min-w-[200px] text-left">
-                  {roles[currentRole]}
-                </span>
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <div 
+              key={index}
+              className="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 group hover:transform hover:scale-105"
+            >
+              <div className="mb-4">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-4">
+                  {project.description}
+                </p>
               </div>
-            </div>
 
-            <p className="text-lg text-gray-400 mb-8 max-w-2xl">
-              AWS • Azure • CI/CD • Kubernetes • Terraform • Serverless
-            </p>
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-500 mb-2">TOOLS USED</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tools.map((tool, toolIndex) => (
+                    <span 
+                      key={toolIndex}
+                      className="bg-blue-600 bg-opacity-20 text-blue-400 text-xs px-2 py-1 rounded-full border border-blue-600 border-opacity-30"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-              <button className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-                <Download size={20} />
-                Download Resume
-              </button>
-              
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/manav-bajpai"
-                  className="bg-gray-800 hover:bg-gray-700 p-3 rounded-lg transition-all duration-300 transform hover:scale-110"
-                  aria-label="GitHub"
+                  href={project.github}
+                  className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
                 >
-                  <Github size={24} />
+                  <Github size={16} />
+                  View Code
                 </a>
-                <a
-                  href="https://linkedin.com/in/manav-bajpai"
-                  className="bg-red-600 hover:bg-red-700 p-3 rounded-lg transition-all duration-300 transform hover:scale-110"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={24} />
-                </a>
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
+                  >
+                    <ExternalLink size={16} />
+                    Live Demo
+                  </a>
+                )}
               </div>
             </div>
-          </div>
-
-          {/* Hero Illustration */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-blue-500 to-red-500 rounded-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="bg-gray-900 rounded-xl p-6 transform -rotate-3">
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="bg-green-500 h-3 rounded-full animate-pulse"></div>
-                  <div className="bg-yellow-500 h-3 rounded-full animate-pulse delay-300"></div>
-                  <div className="bg-red-500 h-3 rounded-full animate-pulse delay-700"></div>
-                </div>
-                <div className="space-y-3">
-                  <div className="bg-red-400 h-4 rounded w-3/4"></div>
-                  <div className="bg-gray-600 h-3 rounded w-full"></div>
-                  <div className="bg-gray-600 h-3 rounded w-2/3"></div>
-                  <div className="bg-green-400 h-4 rounded w-1/2"></div>
-                  <div className="bg-gray-600 h-3 rounded w-full"></div>
-                  <div className="bg-gray-600 h-3 rounded w-3/4"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <button
-            onClick={() => scrollToSection('about')}
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            <ChevronDown size={32} />
-          </button>
+          ))}
         </div>
       </div>
-    </header>
+    </section>
   );
 };
 
-export default Header;
+export default Projects;
